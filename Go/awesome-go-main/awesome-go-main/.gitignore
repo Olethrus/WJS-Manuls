@@ -1,0 +1,12 @@
+tmpl/index.html
+awesome-go
+
+# Folders
+.idea
+.vscode
+test_stale_repositories_log
+*.exe
+# Local Netlify folder
+.netlify
+*.html
+sitemap.xml

@@ -1,0 +1,47 @@
+# License for Visual Python and Visual Tkinter
+
+# Copyright 2009-2010 by macrocoders <macrocoders@gmail.com>
+
+# Web : www.visualpython.org
+# Contact : macrocoders@gmail.com
+
+# All Rights Reserved 
+
+# Permission to use, copy, modify, and distribute this software and its 
+# documentation for any purpose and without fee is hereby granted, 
+# provided that the above copyright notice appear in all copies and that 
+# both that copyright notice and this permission notice appear in 
+# supporting documentation.
+
+# Project Name : Visual Python IDE
+# Project Date : 13-12-2009
+# Author : macrocoders
+# Contact : macrocoders@gmail.com
+
+"""
+Visual Tkinter
+Visual Python GUI
+Free Python Editor
+Visual Tkinter is Python GUI builder.
+Visual Python programming language for advanced
+Visual Python IDE that offers the possibility.
+As of December 2008 starting and writing fasting Editor.
+This software is using Scintilla editing component. 
+"""
+
+#!/usr/bin/env python
+#-*- coding:utf-8-*-
+
+from Tkinter import *
+from tkMessageBox import *
+
+MainWindow = Tk()
+MainWindow.geometry("155x300+150+100")
+
+def Button1Click():
+	print "Hello Visual Python IDE... "
+
+Button1 = Button(text = "Button Text", command = Button1Click)
+Button1 .place(relx = 0.5, rely = 0.5, relheight = 0.20)
+
+mainloop()

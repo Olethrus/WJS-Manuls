@@ -1,0 +1,136 @@
+#slider-content_mod47 {
+    width: 1030px;
+    height: 250px;
+    position: relative;
+    z-index: 1;
+}
+#myController_mod47  {
+    color:white;
+    height:0;
+    position:relative;
+    z-index:150;
+}
+.innerController_mod47 {
+    display:none;
+    padding: 5px 0 5px 5px;
+    position:absolute;
+    bottom:-250px;
+    left:0;
+    width:1020px;
+    text-align:left;
+}
+.innerController_mod47 span img {
+    border: 1px solid #000;
+    margin:2px 5px 2px 0;
+    background: #333;
+    padding: 1px;
+    display: inline !important;
+}
+#mySlides_mod47 img {
+	display: block;
+	margin: 0
+}
+div.slider-navbar_mod47  {
+	padding: 10px 10px 10px 0px;
+	font-family: Arial;
+	color: #fff;
+	font-size: 16px;
+	background: url(../images/title_bg.png) repeat;
+    position: absolute;
+    bottom: 0px; left:0;
+    width:1020px;
+    height:-40px;
+}
+.slider-navbar_mod47  a {
+	text-decoration: underline
+}
+.slider-navbar_mod47  a:hover {
+	text-decoration: none
+}
+.slider-navbar_mod47.small {
+	font-size: 18px !important;
+	padding-top: 18px !important;
+	height: 45px !important
+}
+.dir_buttons_mod47  {
+    display: none;
+    z-index:500;
+}
+.nav_prev_mod47, .nav_next_mod47 {
+	cursor: pointer;
+	display: block;
+	width: 47px; 
+	position: absolute;
+	text-indent:-7887px;
+}
+.nav_prev_mod47 {
+	background: url('../images/rational_prev.png') no-repeat;
+    position:absolute;
+    top:15px;
+    left: 5px;
+}
+.nav_next_mod47 {
+	top: 15px;
+	right: 31px;
+	background: url('../images/rational_next.png') no-repeat;
+    position:absolute;
+}
+.jFlowPrev_mod47, .jFlowNext_mod47 {
+	cursor: pointer;
+	display: block;
+	width: 47px;height:47px;
+	position: absolute;
+	text-indent:-7887px;
+    top:105px;
+}
+.jFlowPrev_mod47 {
+	background: url('../images/rational_prev.png') no-repeat;
+    position:absolute;
+    left: 5px;
+	top:105px;
+}
+.jFlowNext_mod47 {
+	top:105px;
+	right: 5px;
+	background: url('../images/rational_next.png') no-repeat;
+    position:absolute;
+}
+.jFlowNav_mod47 {
+	color: #fff;
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	z-index: 200;
+}
+.jFlowControl_mod47 {
+	cursor: pointer;
+	padding: 0;
+}
+.jFlowControl_mod47 img, innerController_mod47 img {
+    display:inline;
+}
+.innerController_mod47 span.jFlowSelected_mod47 img{
+	text-decoration: none !important
+}
+h2.slideheading, h2.slideheading a {
+    color: #fff;
+    line-height: 1.1em;
+    margin: 0; padding: 0;
+    text-align:right;
+    font-size:1.6em;
+}
+p.slidecaption, p.slidecaption a {
+    color: #fff;
+    font-size: 12px;
+    text-align: right;
+    line-height: 1.2em;
+    margin: 0; padding: 0;
+    padding-left: 2px;
+}
+span.nav_number_mod47, span.nav_title_mod47 {
+    display:inline-block; 	padding: 0 3px;
+}
+div.moduletable-sfx.nopadding, div.modulenopadding, .nopadding {
+	padding: 0;
+	width: auto;
+}

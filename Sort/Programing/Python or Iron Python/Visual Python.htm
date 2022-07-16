@@ -1,0 +1,1372 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dpffagent_docid="b4a611" dpffagent_readystate="1" xml:lang="en-gb" xmlns="http://www.w3.org/1999/xhtml" lang="en-gb"><head>
+
+
+  <!-- base href="http://www.visualpython.org/" -->
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="index, follow">
+  <meta name="keywords" content="Visual, Python, Gui, Editor, Interface, Arayuz, Tkinter, Qt, WxWidget, Glade, Python Shell, Interaktif, Graphic, Visual Gui">
+  <meta name="description" content="Visual Python GUI ; Visual Tkinter, the Python language and visual graphic interface designed for program developers. Write programs were tailored to the needs of visual GUI top-level support. Since December 2008 the continued development of Visual Tkinter while you prepare your project saves time and errors. Fast fault detection system and directs you to the appropriate line. Scintilla class library is used for coloring paper.
+
+Free IDE Visual Tkinter URL to download;">
+  <meta name="generator" content="Joomla! 1.5 - Open Source Content Management">
+  <title>Visual Python</title>
+  <link href="http://www.visualpython.org/index.php?format=feed&amp;type=rss" rel="alternate" type="application/rss+xml" title="RSS 2.0">
+  <link href="http://www.visualpython.org/index.php?format=feed&amp;type=atom" rel="alternate" type="application/atom+xml" title="Atom 1.0">
+  <link href="http://www.visualpython.org/templates/rhuk_milkyway/favicon.ico" rel="shortcut icon" type="image/x-icon">
+  <link rel="stylesheet" href="Visual%20Python_dosyalar/style.css" type="text/css">
+  <link rel="stylesheet" href="Visual%20Python_dosyalar/rational.css" type="text/css">
+  <style type="text/css">
+    <!--
+
+
+    .innerController_mod47 {
+
+    }
+
+    .dir_buttons_mod47 {
+
+    }
+
+    .slider-navbar_mod47 {display:none
+
+    }
+    -->
+  </style>
+  <script src="Visual%20Python_dosyalar/ga.js" async="" type="text/javascript"></script><script type="text/javascript" src="Visual%20Python_dosyalar/mootools.js"></script>
+  <script type="text/javascript" src="Visual%20Python_dosyalar/caption.js"></script>
+  <script type="text/javascript" src="Visual%20Python_dosyalar/jquery-1.js"></script>
+  <script type="text/javascript" src="Visual%20Python_dosyalar/jquery_003.js"></script>
+  <script type="text/javascript" src="Visual%20Python_dosyalar/jquery_002.js"></script>
+  <script type="text/javascript" src="Visual%20Python_dosyalar/rokslideshow.js"></script>
+  <script type="text/javascript">
+
+
+    var $jj = jQuery.noConflict();
+
+
+
+    //preload images function
+
+    jQuery.preloadImages = function(){
+
+        for(var i = 0; i<arguments.length; i++) {
+
+            jQuery("<img>").attr("src", arguments[i]);
+
+        }
+
+    }
+
+
+
+    $jj.preloadImages("images/stories/superslider/11.png","images/stories/superslider/10.jpg","images/stories/superslider/9.jpg","images/stories/superslider/8.jpg","images/stories/superslider/7.png","images/stories/superslider/6.png","images/stories/superslider/5.png","images/stories/superslider/4.png","images/stories/superslider/3.png","images/stories/superslider/2.png","images/stories/superslider/1.png");
+
+
+
+    $jj(document).ready(function(){
+
+
+
+        $jj("#myController_mod47").jFlow({
+
+        slides: "#mySlides_mod47",
+
+        controller: ".jFlowControl_mod47", // must be class, use . sign
+
+        slideWrapper : "#jFlowSlide_mod47", // must be id, use # sign
+
+        selectedWrapper: "jFlowSelected_mod47", // just pure text, no sign
+
+        width: "1030px",
+
+        height: "250px",
+
+        duration: 300,
+
+        prev: ".jFlowPrev_mod47", // must be class, use . sign
+
+        next: ".jFlowNext_mod47" // must be class, use . sign
+
+    	}),
+
+        $jj("#slider-content_mod47").hover(function() {$jj(".dir_buttons_mod47").animate({opacity: "show"}, "slow");$jj(".slider-navbar_mod47").animate({opacity: "show"}, "slow");$jj(".innerController_mod47").animate({opacity: "show"}, "slow");
+
+        },
+
+        function() {$jj(".dir_buttons_mod47").animate({opacity: "hide"}, "slow");$jj(".slider-navbar_mod47").animate({opacity: "hide"}, "slow");$jj(".innerController_mod47").animate({opacity: "hide"}, "slow");
+
+        });
+
+
+
+    });
+jQuery.noConflict();jQuery(document).ready(function(){jQuery('.tweet1').tweet({avatar_size: 48,count: 5,popup_intro: 'I am on Twitter!',popup_info: 'no',tweet_source: 'yes',twitter_name: 'yes',suppress_replies: 'no',tweet_template: '1',twitter_action: 'tweeted',source_pre: 'from',multiuser: 'visualpython',join_text: 'auto',auto_join_text_default: 'I said',auto_join_text_ed: 'I',auto_join_text_ing: 'I am',auto_join_text_reply: 'I replied to',auto_join_text_url: '1',loading_text: 'Loading Tweets ...'});})
+jQuery(document).ready(function () {
+  jQuery('.bubbleInfo').each(function () {
+    // options
+    var distance = 10;
+    var time = 250;
+    var hideDelay = 500;
+
+    var hideDelayTimer = null;
+
+    // tracker
+    var beingShown = false;
+    var shown = false;
+    
+    var trigger = jQuery('.trigger', this);
+    var popup = jQuery('.popup', this).css('opacity', 0);
+
+    // set the mouseover and mouseout on both element
+    jQuery([trigger.get(0), popup.get(0)]).mouseover(function () {
+      // stops the hide event if we move from the trigger to the popup element
+      if (hideDelayTimer) clearTimeout(hideDelayTimer);
+
+      // don't trigger the animation again if we're being shown, or already visible
+      if (beingShown || shown) {
+        return;
+      } else {
+        beingShown = true;
+
+        // reset position of popup box
+        popup.css({
+          top: -20,
+          left: 90,
+          display: 'block' // brings the popup back in to view
+        })
+
+        // (we're using chaining on the popup) now animate it's opacity and position
+        .animate({
+          top: '-=' + distance + 'px',
+          opacity: 1
+        }, time, 'swing', function() {
+          // once the animation is complete, set the tracker variables
+          beingShown = false;
+          shown = true;
+        });
+      }
+    }).mouseout(function () {
+      // reset the timer if we get fired again - avoids double animations
+      if (hideDelayTimer) clearTimeout(hideDelayTimer);
+      
+      // store the timer so that it can be cleared in the mouseover if required
+      hideDelayTimer = setTimeout(function () {
+        hideDelayTimer = null;
+        popup.animate({
+          top: '-=' + distance + 'px',
+          opacity: 0
+        }, time, 'swing', function () {
+          // once the animate is complete, set the tracker variables
+          shown = false;
+          // hide the popup entirely after the effect (opacity alone doesn't do the job)
+          popup.css('display', 'none');
+        });
+      }, hideDelay);
+    });
+  });
+});
+window.addEvent('load', function() {
+	var imgs = [];
+	imgs.push({file: 'Active Python.png', title: '', desc: '', url: '#'});
+	imgs.push({file: 'Glade.png', title: '', desc: '', url: '#'});
+	imgs.push({file: 'Linux-logo.png', title: '', desc: '', url: '#'});
+	imgs.push({file: 'MacOS-logo.png', title: '', desc: '', url: '#'});
+	imgs.push({file: 'SamplesLauncher.gif', title: '', desc: '', url: '#'});
+	imgs.push({file: 'Visual Python (2).png', title: '', desc: '', url: '#'});
+	imgs.push({file: 'VisualPython.png', title: '', desc: '', url: '#'});
+	imgs.push({file: 'Windows-logo.png', title: '', desc: '', url: '#'});
+	imgs.push({file: 'WxPython.png', title: '', desc: '', url: '#'});
+	imgs.push({file: 'beos.png', title: '', desc: '', url: '#'});
+	imgs.push({file: 'clip.jpg', title: '', desc: '', url: '#'});
+	imgs.push({file: 'dogsnake.jpg', title: '', desc: '', url: '#'});
+	imgs.push({file: 'eric.png', title: '', desc: '', url: '#'});
+	imgs.push({file: 'farpy.gif', title: '', desc: '', url: '#'});
+	imgs.push({file: 'frontpage_tabs_labs.png', title: '', desc: '', url: '#'});
+	imgs.push({file: 'glade-main-page.png', title: '', desc: '', url: '#'});
+	imgs.push({file: 'google.jpg', title: '', desc: '', url: '#'});
+	imgs.push({file: 'jython.png', title: '', desc: '', url: '#'});
+	imgs.push({file: 'py gtk.png', title: '', desc: '', url: '#'});
+	imgs.push({file: 'pymt.png', title: '', desc: '', url: '#'});
+	imgs.push({file: 'pyobj c.png', title: '', desc: '', url: '#'});
+	imgs.push({file: 'pyscripter.jpg', title: '', desc: '', url: '#'});
+	imgs.push({file: 'python-icon.png', title: '', desc: '', url: '#'});
+	imgs.push({file: 'python-logo.gif', title: '', desc: '', url: '#'});
+	imgs.push({file: 'python.png', title: '', desc: '', url: '#'});
+	imgs.push({file: 'python_and_check_logo.png', title: '', desc: '', url: '#'});
+	imgs.push({file: 'qt (2).png', title: '', desc: '', url: '#'});
+	imgs.push({file: 'qt logo.png', title: '', desc: '', url: '#'});
+	imgs.push({file: 'qt.png', title: '', desc: '', url: '#'});
+	imgs.push({file: 'title.png', title: '', desc: '', url: '#'});
+	imgs.push({file: 'visual python.png', title: '', desc: '', url: '#'});
+	imgs.push({file: 'visual tcl.png', title: '', desc: '', url: '#'});
+	imgs.push({file: 'visual_python.png', title: '', desc: '', url: '#'});
+	imgs.push({file: 'wingware.png', title: '', desc: '', url: '#'});
+	var myshow = new Slideshow('slideshow', { 
+		type: 'combo',
+		externals: 0,
+		showTitleCaption: 1,
+		captionHeight: 45,
+		width: 650, 
+		height: 300, 
+		pan: 50,
+		zoom: 50,
+		loadingDiv: 1,
+		resize: true,
+		duration: [2000, 9000],
+		transition: Fx.Transitions.Expo.easeOut,
+		images: imgs, 
+		path: 'http://www.visualpython.org/images/stories/ImageAll/'
+	});
+
+	myshow.caps.h2.setStyles({color: '#fff', fontSize: '13px'});
+	myshow.caps.p.setStyles({color: '#ccc', fontSize: '11px'});
+});
+  </script>
+  <link rel="stylesheet" href="Visual%20Python_dosyalar/mod_ajaxwtranslate.css" type="text/css">
+  <script type="text/javascript" src="Visual%20Python_dosyalar/jquery.js"></script>
+  <script type="text/javascript" src="Visual%20Python_dosyalar/jquery-translate.js"></script>
+  <script type="text/javascript" src="Visual%20Python_dosyalar/click_slidedown.js"></script>
+  <!-- Copyright AjaxWtranslate  http://sitetranslation.org -->
+
+
+<link rel="stylesheet" href="Visual%20Python_dosyalar/system.css" type="text/css">
+<link rel="stylesheet" href="Visual%20Python_dosyalar/general.css" type="text/css">
+<link rel="stylesheet" href="Visual%20Python_dosyalar/template.css" type="text/css">
+<link rel="stylesheet" href="Visual%20Python_dosyalar/blue.css" type="text/css">
+<link rel="stylesheet" href="Visual%20Python_dosyalar/blue_bg.css" type="text/css">
+<!--[if lte IE 6]>
+<link href="/templates/rhuk_milkyway/css/ieonly.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17874838-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+<meta name="google-site-verification" content="zqNuV_z1Ff42JocAEZ3cXBQJO6KwiZpKSu2Wb-2bsSI">
+
+</head><body id="page_bg" class="color_blue bg_blue width_fmax">
+<a name="up" id="up"></a>
+<div class="center" align="center">
+	<div id="wrapper">
+		<div id="wrapper_r">
+			<div id="header">
+				<div id="header_l">
+					<div id="header_r">
+						<div id="logo"></div>
+							<div id="slidewrap">
+		<div style="display: block; position: relative; width: 650px;" id="slideshow"><div style="display: block; overflow: hidden; position: relative; width: 650px; height: 300px;"><a style="position: absolute; top: 0px; left: 0px; visibility: visible; opacity: 1; z-index: 0; width: 650px; height: 300px; display: block; cursor: default;" href="#"><img style="display: block; position: absolute; left: -409px; top: 0px; z-index: 0; height: 300px; width: 1060px; visibility: visible; opacity: 1; cursor: default; bottom: auto; right: auto;" alt="" title="" src="Visual%20Python_dosyalar/Active%2520Python.png"></a><a style="position: absolute; top: 0px; left: 0px; visibility: visible; opacity: 1; z-index: 1; width: 650px; height: 300px; display: block; cursor: default;" href="#"><img style="display: block; position: absolute; left: auto; top: auto; z-index: 1; height: 442px; width: 4468px; visibility: visible; opacity: 0.917904; cursor: default; bottom: 0px; right: -1254px;" alt="" title="" src="Visual%20Python_dosyalar/Glade.png"></a></div></div>
+		<div id="loadingDiv"></div>
+	</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div id="tabarea">
+				<div id="tabarea_l">
+					<div id="tabarea_r">
+						<div id="tabmenu">
+						<table class="pill" cellpadding="0" cellspacing="0">
+							<tbody><tr>
+								<td class="pill_l">&nbsp;</td>
+								<td class="pill_m">
+								<div id="pillmenu">
+									<ul id="mainlevel-nav"><li><a href="http://www.visualpython.org/about-visual-python.html" class="mainlevel-nav">About Visual Python!</a></li><li><a href="http://www.visualpython.org/features.html" class="mainlevel-nav">Features</a></li><li><a href="http://www.visualpython.org/visual-py-to-exe-community.html" class="mainlevel-nav">Visual Py to Exe Community</a></li></ul>
+								</div>
+								</td>
+								<td class="pill_r">&nbsp;</td>
+							</tr>
+							</tbody></table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="search">
+				
+    <a href="#" id="translate_translate" name="en" onclick="return false;">Language Select</a>
+    <div id="not_translator" style="display: none;">.example-class,#example-id</div>
+			</div>
+
+			<div id="pathway">
+				
+
+
+<table class="contentpaneopen">
+	<tbody><tr>
+		<td valign="top">A <a class="reference external" href="http://www.python.org/download/releases/2.6.6/">release candidate for Python 2.6.6</a> has been released for testing.  Python 2.6.6 final is schedule for release on August 16, 2010.</td>
+	</tr>
+	<tr>
+        <td valign="top">
+
+       		</td>
+     </tr>
+</tbody></table>
+
+
+
+<noscript>
+
+    <span class="warning">JoomlaJunkie SuperSlider module requires Javascript to be enabled.</span>
+
+</noscript>
+
+
+
+<div id="slider-content_mod47">
+
+    <!-- First we setup the user (number) controls -->
+
+    <div id="myController_mod47">
+
+        <div style="display: none;" class="innerController_mod47"><span class="jFlowControl_mod47 jFlowSelected_mod47"><span class="nav_number_mod47">1</span> | </span><span class="jFlowControl_mod47"><span class="nav_number_mod47">2</span> | </span><span class="jFlowControl_mod47"><span class="nav_number_mod47">3</span> | </span><span class="jFlowControl_mod47"><span class="nav_number_mod47">4</span> | </span><span class="jFlowControl_mod47"><span class="nav_number_mod47">5</span> | </span><span class="jFlowControl_mod47"><span class="nav_number_mod47">6</span> | </span><span class="jFlowControl_mod47"><span class="nav_number_mod47">7</span> | </span><span class="jFlowControl_mod47"><span class="nav_number_mod47">8</span> | </span><span class="jFlowControl_mod47"><span class="nav_number_mod47">9</span> | </span><span class="jFlowControl_mod47"><span class="nav_number_mod47">10</span> | </span><span class="jFlowControl_mod47"><span class="nav_number_mod47">11</span> | </span></div>
+
+    </div>
+
+<!--This is where we add the flow slides -->
+
+<div style="position: relative; width: 1030px; height: 250px; overflow: hidden;" id="jFlowSlide_mod47">
+
+<div id="jFlowSlide_mod47"></div><!-- End mySlides -->
+
+    <div style="position: relative; width: 11330px; height: 250px; overflow: hidden; margin-left: 0px;" id="mySlides_mod47">
+
+<!-- Slider START--> <div style="position: relative; width: 1030px; height: 250px; float: left; overflow: auto;" class="jFlowSlideContainer"><div class="jFlowSlideContainer_mod47"><div class="jFlowSlideContainer"><div><a href="http://pythontr.org/" target="_blank"><img alt="Visual Python GUI:" src="Visual%20Python_dosyalar/1.png"></a><div class="jFlowSlideContainer"><div style="display: none;" class="slider-navbar_mod47"><h2 class="slideheading"><a href="http://pythontr.org/" target="_blank">Visual Python GUI:</a></h2><p class="slidecaption"><a href="http://pythontr.org/" target="_blank">Visual Tkinter, the Python language and visual graphic interface designed.</a></p></div></div></div></div></div></div>
+
+        <div style="position: relative; width: 1030px; height: 250px; float: left; overflow: auto;" class="jFlowSlideContainer"><div class="jFlowSlideContainer_mod47"><div class="jFlowSlideContainer"><div><a href="http://qt.nokia.com/" target="_blank"><img alt="Qt:" src="Visual%20Python_dosyalar/2.png"></a><div class="jFlowSlideContainer"><div style="display: none;" class="slider-navbar_mod47"><h2 class="slideheading"><a href="http://qt.nokia.com/" target="_blank">Qt:</a></h2><p class="slidecaption"><a href="http://qt.nokia.com/" target="_blank">Everything you need to create web-enabled desktop, mobile and embedded applications.</a></p></div></div></div></div></div></div>
+
+        <div style="position: relative; width: 1030px; height: 250px; float: left; overflow: auto;" class="jFlowSlideContainer"><div class="jFlowSlideContainer_mod47"><div class="jFlowSlideContainer"><div><a href="http://pyjs.org/" target="_blank"><img alt="Pyjamas:" src="Visual%20Python_dosyalar/3.png"></a><div class="jFlowSlideContainer"><div style="display: none;" class="slider-navbar_mod47"><h2 class="slideheading"><a href="http://pyjs.org/" target="_blank">Pyjamas:</a></h2><p class="slidecaption"><a href="http://pyjs.org/" target="_blank">Python Javascript Compiler, Desktop Widget Set and RIA Web Framework.</a></p></div></div></div></div></div></div>
+
+        <div style="position: relative; width: 1030px; height: 250px; float: left; overflow: auto;" class="jFlowSlideContainer"><div class="jFlowSlideContainer_mod47"><div class="jFlowSlideContainer"><div><a href="http://anygui.sourceforge.net/index.php" target="_blank"><img alt="Anygui project:" src="Visual%20Python_dosyalar/4.png"></a><div class="jFlowSlideContainer"><div style="display: none;" class="slider-navbar_mod47"><h2 class="slideheading"><a href="http://anygui.sourceforge.net/index.php" target="_blank">Anygui project:</a></h2><p class="slidecaption"><a href="http://anygui.sourceforge.net/index.php" target="_blank">The
+ purpose of the Anygui project  was to create an easy-to-use, simple, 
+and generic module for making graphical user interfaces in Python.</a></p></div></div></div></div></div></div>
+
+        <div style="position: relative; width: 1030px; height: 250px; float: left; overflow: auto;" class="jFlowSlideContainer"><div class="jFlowSlideContainer_mod47"><div class="jFlowSlideContainer"><div><a href="http://easygui.sourceforge.net/" target="_blank"><img alt="EasyGui:" src="Visual%20Python_dosyalar/5.png"></a><div class="jFlowSlideContainer"><div style="display: none;" class="slider-navbar_mod47"><h2 class="slideheading"><a href="http://easygui.sourceforge.net/" target="_blank">EasyGui:</a></h2><p class="slidecaption"><a href="http://easygui.sourceforge.net/" target="_blank">EasyGUI is a module for very simple, very easy GUI programming in Python.</a></p></div></div></div></div></div></div>
+
+        <div style="position: relative; width: 1030px; height: 250px; float: left; overflow: auto;" class="jFlowSlideContainer"><div class="jFlowSlideContainer_mod47"><div class="jFlowSlideContainer"><div><a href="http://ironpython.codeplex.com/" target="_blank"><img alt="IronPython:" src="Visual%20Python_dosyalar/6.png"></a><div class="jFlowSlideContainer"><div style="display: none;" class="slider-navbar_mod47"><h2 class="slideheading"><a href="http://ironpython.codeplex.com/" target="_blank">IronPython:</a></h2><p class="slidecaption"><a href="http://ironpython.codeplex.com/" target="_blank">IronPython is a implementation of the Python programming language on the .NET Framework.</a></p></div></div></div></div></div></div>
+
+        <div style="position: relative; width: 1030px; height: 250px; float: left; overflow: auto;" class="jFlowSlideContainer"><div class="jFlowSlideContainer_mod47"><div class="jFlowSlideContainer"><div><a href="http://www.jython.org/" target="_blank"><img alt="Jython:" src="Visual%20Python_dosyalar/7.png"></a><div class="jFlowSlideContainer"><div style="display: none;" class="slider-navbar_mod47"><h2 class="slideheading"><a href="http://www.jython.org/" target="_blank">Jython:</a></h2><p class="slidecaption"><a href="http://www.jython.org/" target="_blank">Interested in using Spring Python with Jython?</a></p></div></div></div></div></div></div>
+
+        <div style="position: relative; width: 1030px; height: 250px; float: left; overflow: auto;" class="jFlowSlideContainer"><div class="jFlowSlideContainer_mod47"><div class="jFlowSlideContainer"><div><a href="http://www.cosc.canterbury.ac.nz/greg.ewing/python_gui/" target="_blank"><img alt="Python GUI Project:" src="Visual%20Python_dosyalar/8.jpg"></a><div class="jFlowSlideContainer"><div style="display: none;" class="slider-navbar_mod47"><h2 class="slideheading"><a href="http://www.cosc.canterbury.ac.nz/greg.ewing/python_gui/" target="_blank">Python GUI Project:</a></h2><p class="slidecaption"><a href="http://www.cosc.canterbury.ac.nz/greg.ewing/python_gui/" target="_blank">This is a project to develop a cross-platform pythonic GUI API.  The goals of this project are:</a></p></div></div></div></div></div></div>
+
+        <div style="position: relative; width: 1030px; height: 250px; float: left; overflow: auto;" class="jFlowSlideContainer"><div class="jFlowSlideContainer_mod47"><div class="jFlowSlideContainer"><div><a href="http://www.activestate.com/" target="_blank"><img alt="ActiveState:" src="Visual%20Python_dosyalar/9.jpg"></a><div class="jFlowSlideContainer"><div style="display: none;" class="slider-navbar_mod47"><h2 class="slideheading"><a href="http://www.activestate.com/" target="_blank">ActiveState:</a></h2><p class="slidecaption"><a href="http://www.activestate.com/" target="_blank">Learn
+ more about development tools for dynamic language programming with 
+Perl, Python, Tcl, PHP, Ruby, JavaScript, CSS, HTML, Django:</a></p></div></div></div></div></div></div>
+
+        <div style="position: relative; width: 1030px; height: 250px; float: left; overflow: auto;" class="jFlowSlideContainer"><div class="jFlowSlideContainer_mod47"><div class="jFlowSlideContainer"><div><a href="http://www.pygtk.org/" target="_blank"><img alt="PyGTK:" src="Visual%20Python_dosyalar/10.jpg"></a><div class="jFlowSlideContainer"><div style="display: none;" class="slider-navbar_mod47"><h2 class="slideheading"><a href="http://www.pygtk.org/" target="_blank">PyGTK:</a></h2><p class="slidecaption"><a href="http://www.pygtk.org/" target="_blank">PyGTK applications are truly multiplatform and they're able to run, unmodified, on Linux, Windows, MacOS X and other platforms.</a></p></div></div></div></div></div></div>
+
+        <div style="position: relative; width: 1030px; height: 250px; float: left; overflow: auto;" class="jFlowSlideContainer"><div class="jFlowSlideContainer_mod47"><div class="jFlowSlideContainer"><div><a href="http://www.wxpython.org/" target="_blank"><img alt="wxPython:" src="Visual%20Python_dosyalar/11.png"></a><div class="jFlowSlideContainer"><div style="display: none;" class="slider-navbar_mod47"><h2 class="slideheading"><a href="http://www.wxpython.org/" target="_blank">wxPython:</a></h2><p class="slidecaption"><a href="http://www.wxpython.org/" target="_blank">wxPython, a blending of the wxWidgets C++ class library with the Python programming language.</a></p></div></div></div></div></div></div>
+
+        
+
+        </div></div> <!-- End jFlowSlide -->
+
+    <!-- Lastly we add the previous & next navigation buttons - the images are handled by image replacement in the css --><div style="display: none;" class="dir_buttons_mod47"><span class="jFlowPrev_mod47">Previous</span><span class="jFlowNext_mod47">Next</span></div></div>
+
+
+
+
+<div class="jTweet">
+			
+	<div class="tweet tweet1">
+	</div>
+			<div class="noPopup">
+						<img src="Visual%20Python_dosyalar/bird1.png" alt="twitter Bird">
+										<span class="triggerDetail"><a target="_blank" href="http://twitter.com/visualpython/">Follow me on Twitter</a></span>
+					</div>
+		</div>
+<div class="jTweetClear"></div>
+<span class="breadcrumbs pathway">
+Home</span>
+
+			</div>
+
+			<div class="clr"></div>
+
+			<div id="whitebox">
+				<div id="whitebox_t">
+					<div id="whitebox_tl">
+						<div id="whitebox_tr"></div>
+					</div>
+				</div>
+
+				<div id="whitebox_m">
+					<div id="area">
+									
+
+						<div id="leftcolumn">
+															<div class="module">
+			<div>
+				<div>
+					<div>
+											<form action="index.php" method="post">
+	<div class="search">
+		<input name="searchword" id="mod_search_searchword" maxlength="20" alt="Search" class="inputbox" size="20" value="search..." onblur="if(this.value=='') this.value='search...';" onfocus="if(this.value=='search...') this.value='';" type="text">	</div>
+	<input name="task" value="search" type="hidden">
+	<input name="option" value="com_search" type="hidden">
+	<input name="Itemid" value="1" type="hidden">
+</form>					</div>
+				</div>
+			</div>
+		</div>
+			<div class="module_menu">
+			<div>
+				<div>
+					<div>
+													<h3>Main Menu</h3>
+											<ul class="menu"><li id="current" class="active item1"><a href="http://www.visualpython.org/"><span>Home</span></a></li><li class="parent item27"><a href="http://www.visualpython.org/python-overview.html"><span>Python! Overview</span></a></li><li class="item2"><a href="http://www.visualpython.org/python-license.html"><span>Visual Python! License</span></a></li></ul>					</div>
+				</div>
+			</div>
+		</div>
+			<div class="module_menu">
+			<div>
+				<div>
+					<div>
+													<h3>Download</h3>
+											<ul class="menu"><li class="item55"><a href="http://www.visualpython.org/visual-tkinter.html"><span>Visual Tkinter</span></a></li><li class="item56"><a href="http://www.visualpython.org/visual-python-new.html"><span>Visual Python New!</span></a></li></ul>					</div>
+				</div>
+			</div>
+		</div>
+			<div class="module_menu">
+			<div>
+				<div>
+					<div>
+													<h3>Login Form</h3>
+											<form action="/index.php" method="post" name="login" id="form-login">
+		<fieldset class="input">
+	<p id="form-login-username">
+		<label for="modlgn_username">Username</label><br>
+		<input value="admin" id="modlgn_username" name="username" class="inputbox" alt="username" size="18" type="text">
+	</p>
+	<p id="form-login-password">
+		<label for="modlgn_passwd">Password</label><br>
+		<input id="modlgn_passwd" name="passwd" class="inputbox" size="18" alt="password" type="password">
+	</p>
+		<p id="form-login-remember">
+		<label for="modlgn_remember">Remember Me</label>
+		<input id="modlgn_remember" name="remember" class="inputbox" value="yes" alt="Remember Me" type="checkbox">
+	</p>
+		<input name="Submit" class="button" value="Login" type="submit">
+	</fieldset>
+	<ul>
+		<li>
+			<a href="http://www.visualpython.org/component/user/reset.html">
+			Forgot your password?</a>
+		</li>
+		<li>
+			<a href="http://www.visualpython.org/component/user/remind.html">
+			Forgot your username?</a>
+		</li>
+				<li>
+			<a href="http://www.visualpython.org/component/user/register.html">
+				Create an account</a>
+		</li>
+			</ul>
+	
+	<input name="option" value="com_user" type="hidden">
+	<input name="task" value="login" type="hidden">
+	<input name="return" value="Lw==" type="hidden">
+	<input name="dead8300b296fba000aa8183527795f6" value="1" type="hidden"></form>
+					</div>
+				</div>
+			</div>
+		</div>
+			<div class="module_menu">
+			<div>
+				<div>
+					<div>
+													<h3>Pay Pal Donate</h3>
+											<ul class="menu"><li class="item53"><a href="http://www.visualpython.org/donate.html"><img src="Visual%20Python_dosyalar/paypal_logo.jpg" alt="donate" align="left"><span>Donate</span></a></li></ul>					</div>
+				</div>
+			</div>
+		</div>
+			<div class="module">
+			<div>
+				<div>
+					<div>
+											<a href="http://twitter.com/visualpython">Twitter News</a> (total 5)
+
+<!-- 
+Powered by Joomla Gadgets from kksou.com
+http://www.kksou.com/php-gtk2/Joomla-Gadgets/
+-->
+
+<script type="text/javascript">
+
+/***********************************************
+* Pausing up-down scroller- � Dynamic Drive (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit http://www.dynamicdrive.com/ for this script and 100s more.
+***********************************************/
+
+function pausescroller(content, divId, divClass, delay){
+this.content=content //message array content
+this.tickerid=divId //ID of ticker div to display information
+this.delay=delay //Delay between msg change, in miliseconds.
+this.mouseoverBol=0 //Boolean to indicate whether mouse is currently over scroller (and pause it if it is)
+this.hiddendivpointer=1 //index of message array for hidden div
+document.write('<div id="'+divId+'" class="'+divClass+'" style="position: relative; overflow: hidden"><div class="innerDiv" style="position: absolute; width: 100%" id="'+divId+'1">'+content[0]+'</div><div class="innerDiv" style="position: absolute; width: 100%; visibility: hidden" id="'+divId+'2">'+content[1]+'</div></div>')
+var scrollerinstance=this
+if (window.addEventListener) //run onload in DOM2 browsers
+window.addEventListener("load", function(){scrollerinstance.initialize()}, false)
+else if (window.attachEvent) //run onload in IE5.5+
+window.attachEvent("onload", function(){scrollerinstance.initialize()})
+else if (document.getElementById) //if legacy DOM browsers, just start scroller after 0.5 sec
+setTimeout(function(){scrollerinstance.initialize()}, 500)
+}
+
+// -------------------------------------------------------------------
+// initialize()- Initialize scroller method.
+// -Get div objects, set initial positions, start up down animation
+// -------------------------------------------------------------------
+
+pausescroller.prototype.initialize=function(){
+this.tickerdiv=document.getElementById(this.tickerid)
+this.visiblediv=document.getElementById(this.tickerid+"1")
+this.hiddendiv=document.getElementById(this.tickerid+"2")
+this.visibledivtop=parseInt(pausescroller.getCSSpadding(this.tickerdiv))
+//set width of inner DIVs to outer DIV's width minus padding (padding assumed to be top padding x 2)
+this.visiblediv.style.width=this.hiddendiv.style.width=this.tickerdiv.offsetWidth-(this.visibledivtop*2)+"px"
+this.getinline(this.visiblediv, this.hiddendiv)
+this.hiddendiv.style.visibility="visible"
+var scrollerinstance=this
+document.getElementById(this.tickerid).onmouseover=function(){scrollerinstance.mouseoverBol=1}
+document.getElementById(this.tickerid).onmouseout=function(){scrollerinstance.mouseoverBol=0}
+if (window.attachEvent) //Clean up loose references in IE
+window.attachEvent("onunload", function(){scrollerinstance.tickerdiv.onmouseover=scrollerinstance.tickerdiv.onmouseout=null})
+setTimeout(function(){scrollerinstance.animateup()}, this.delay)
+}
+
+
+// -------------------------------------------------------------------
+// animateup()- Move the two inner divs of the scroller up and in sync
+// -------------------------------------------------------------------
+
+pausescroller.prototype.animateup=function(){
+var scrollerinstance=this
+if (parseInt(this.hiddendiv.style.top)>(this.visibledivtop+5)){
+this.visiblediv.style.top=parseInt(this.visiblediv.style.top)-5+"px"
+this.hiddendiv.style.top=parseInt(this.hiddendiv.style.top)-5+"px"
+setTimeout(function(){scrollerinstance.animateup()}, 50)
+}
+else{
+this.getinline(this.hiddendiv, this.visiblediv)
+this.swapdivs()
+setTimeout(function(){scrollerinstance.setmessage()}, this.delay)
+}
+}
+
+// -------------------------------------------------------------------
+// swapdivs()- Swap between which is the visible and which is the hidden div
+// -------------------------------------------------------------------
+
+pausescroller.prototype.swapdivs=function(){
+var tempcontainer=this.visiblediv
+this.visiblediv=this.hiddendiv
+this.hiddendiv=tempcontainer
+}
+
+pausescroller.prototype.getinline=function(div1, div2){
+div1.style.top=this.visibledivtop+"px"
+div2.style.top=Math.max(div1.parentNode.offsetHeight, div1.offsetHeight)+"px"
+}
+
+// -------------------------------------------------------------------
+// setmessage()- Populate the hidden div with the next message before it's visible
+// -------------------------------------------------------------------
+
+pausescroller.prototype.setmessage=function(){
+var scrollerinstance=this
+if (this.mouseoverBol==1) //if mouse is currently over scoller, do nothing (pause it)
+setTimeout(function(){scrollerinstance.setmessage()}, 100)
+else{
+var i=this.hiddendivpointer
+var ceiling=this.content.length
+this.hiddendivpointer=(i+1>ceiling-1)? 0 : i+1
+this.hiddendiv.innerHTML=this.content[this.hiddendivpointer]
+this.animateup()
+}
+}
+
+pausescroller.getCSSpadding=function(tickerobj){ //get CSS padding value, if any
+if (tickerobj.currentStyle)
+return tickerobj.currentStyle["paddingTop"]
+else if (window.getComputedStyle) //if DOM2
+return window.getComputedStyle(tickerobj, "").getPropertyValue("padding-top")
+else
+return 0
+}
+
+</script>
+<style type="text/css">
+
+.b1 {
+margin: 0 0 0 0;
+text-align: right;
+}
+
+/*Example CSS for the two demo scrollers*/
+
+#pscroller1{
+width: 160px;
+height: 120px;
+border: 1px solid #9A9A9A;
+padding: 5px;
+background-color: lightyellow;
+}
+
+#pscroller2{
+width: 240px;
+height: 60px;
+border: 1px solid #9A9A9A;
+padding: 5px;
+background-color: #DDFEE9;
+}
+
+#pscroller3{
+width: 350px;
+height: 17px;
+border: 1px solid #dddddd;
+padding: 3px;
+}
+
+#mod_pscroller{
+width: 120px;
+height: 120px;
+/*border: 1px solid #9A9A9A;*/
+padding: 5px;
+/*background-color: #DDFEE9;*/
+}
+
+#pscroller3 a{
+text-decoration: none;
+}
+
+.someclass{ //class to apply to your scroller(s) if desired
+}
+
+.pscroller{
+margin: 5px 0 0;
+padding: 0;
+border: 0;
+text-align: left;
+}
+</style>
+<script type="text/javascript">
+var pausecontent = new Array()
+pausecontent[0] = '<b>Thu, 12 Aug 2010 22:09:34 </b><br /> Twitter <a href="http://visualpython.org/component/content/article/34-twitter/49-twitter.html" target="_blank">http://visualpython.org/component/content/article/34-twitter/49-twitter.html</a></title><br />    <description>'
+pausecontent[1] = '<b>Thu, 12 Aug 2010 21:37:04 </b><br /> Twitter <a href="http://bit.ly/bjLHk9" target="_blank">http://bit.ly/bjLHk9</a></title><br />    <description>'
+pausecontent[2] = '<b>Thu, 12 Aug 2010 20:31:23 </b><br /> Visual Python is easy graphic user interface and very useful IDE designed to help you program your Python programs fast and easy.</title><br />    <description>'
+pausecontent[3] = '<b>Thu, 12 Aug 2010 20:22:42 </b><br /> Twitter <a href="http://bit.ly/d8yAwp" target="_blank">http://bit.ly/d8yAwp</a></title><br />    <description>'
+pausecontent[4] = '<b>Mon, 09 Aug 2010 23:48:10 </b><br /> Visual Tkinter, the Python language and visual graphic interface designer.</title><br />    <description>'
+</script><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td><div class="pscroller"><script type="text/javascript">
+new pausescroller(pausecontent, "pscroller1", "someclass", 3500)
+</script><div id="pscroller1" class="someclass" style="position: relative; overflow: hidden;"><div class="innerDiv" style="position: absolute; width: 162px; top: 5px;" id="pscroller11"><b>Thu, 12 Aug 2010 20:31:23 </b><br>
+ Visual Python is easy graphic user interface and very useful IDE 
+designed to help you program your Python programs fast and easy.<br>    <description></description></div><div class="innerDiv" style="position: absolute; width: 162px; visibility: visible; top: 132px;" id="pscroller12"><b>Thu, 12 Aug 2010 21:37:04 </b><br> Twitter <a href="http://bit.ly/bjLHk9" target="_blank">http://bit.ly/bjLHk9</a><br>    <description></description></div></div></div></td></tr><tr><td><p style="padding: 0pt; margin: 0pt;" align="right"><a href="http://www.kksou.com/php-gtk2/Joomla/Pausing-up-down-Scroller-plugin.php" style="color: rgb(170, 170, 170); text-decoration: none; font-family: Tahoma,Arial,Helvetica,sans-serif; font-size: 7pt; font-weight: normal;">Powered by JoomlaGadgets</a></p>
+
+<!-- 
+Powered by Joomla Gadgets from kksou.com
+http://www.kksou.com/php-gtk2/Joomla-Gadgets/
+-->
+
+</td></tr></tbody></table>					</div>
+				</div>
+			</div>
+		</div>
+			<div class="module">
+			<div>
+				<div>
+					<div>
+											<style type="text/css">
+.jMafia1 {
+		
+			line-height: 25 px;
+	text-align: left;
+	0;
+	
+}
+.jMafia2 a:link, .jMafia1 a:visited{
+		text-decoration: none;}
+.jMafia2 a:hover{
+		text-decoration: none;}
+.jMafia2 {
+	line-height:  px;
+	text-align: left;
+}
+.jMafia3 {
+	color: #CCCCCC;
+}
+.jMafia4 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+}
+</style>
+
+<div class="jMafia2">
+<a href="http://www.visualpython.org/component/search/?searchword=adding&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 10.6087px;" class="jMafia1" title="adding">adding</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=alpha&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 10.6087px;" class="jMafia1" title="alpha">alpha</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=appropriate&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 10px;" class="jMafia1" title="appropriate">appropriate</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=category&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 10.6087px;" class="jMafia1" title="category">category</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=class&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 10px;" class="jMafia1" title="class">class</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=coloring&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 10px;" class="jMafia1" title="coloring">coloring</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=content&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 10.6087px;" class="jMafia1" title="content">content</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=converter&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 10px;" class="jMafia1" title="converter">converter</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=designed&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 10.6087px;" class="jMafia1" title="designed">designed</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=different&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 10px;" class="jMafia1" title="different">different</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=donate&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 10.6087px;" class="jMafia1" title="donate">donate</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=download&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 10.6087px;" class="jMafia1" title="download">download</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=example&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 10.6087px;" class="jMafia1" title="example">example</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=fast&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 10.6087px;" class="jMafia1" title="fast">fast</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=files&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 10px;" class="jMafia1" title="files">files</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=free&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 10px;" class="jMafia1" title="free">free</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=general&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 10.6087px;" class="jMafia1" title="general">general</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=interface&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 10.6087px;" class="jMafia1" title="interface">interface</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=language&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 13.0435px;" class="jMafia1" title="language">language</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=library&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 10px;" class="jMafia1" title="library">library</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=license&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 11.2174px;" class="jMafia1" title="license">license</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=line&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 10px;" class="jMafia1" title="line">line</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=links&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 11.2174px;" class="jMafia1" title="links">links</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=localise&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 10.6087px;" class="jMafia1" title="localise">localise</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=menu&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 12.4348px;" class="jMafia1" title="menu">menu</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=page&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 10px;" class="jMafia1" title="page">page</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=pages&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 10px;" class="jMafia1" title="pages">pages</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=paper&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 10px;" class="jMafia1" title="paper">paper</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=program&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 11.2174px;" class="jMafia1" title="program">program</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=programs&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 10.6087px;" class="jMafia1" title="programs">programs</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=python&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 21.5652px;" class="jMafia1" title="python">python</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=release&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 11.2174px;" class="jMafia1" title="release">release</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=released&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 11.8261px;" class="jMafia1" title="released">released</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=scintilla&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 10px;" class="jMafia1" title="scintilla">scintilla</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=section&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 10.6087px;" class="jMafia1" title="section">section</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=testing&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 10.6087px;" class="jMafia1" title="testing">testing</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=tkinter&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 15.4783px;" class="jMafia1" title="tkinter">tkinter</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=twitter&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 10.6087px;" class="jMafia1" title="twitter">twitter</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=used&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 10px;" class="jMafia1" title="used">used</a>&nbsp;
+<a href="http://www.visualpython.org/component/search/?searchword=visual&amp;searchphrase=exact&amp;ordering=newest" style="font-size: 24px;" class="jMafia1" title="visual">visual</a>&nbsp;
+	<hr class="jMafia3" size="1"><span class="jMafia4">Created with <a href="http://www.joomlamafia.com/">Mafia Clouds</a></span></div>					</div>
+				</div>
+			</div>
+		</div>
+			<div class="module">
+			<div>
+				<div>
+					<div>
+											<a href="http://www.codegravity.com/" target="_blank" title="JoomlaWatch 1.2.12 - Joomla Monitor and Live Stats by Matej Koval"><img src="Visual%20Python_dosyalar/img.gif" alt="JoomlaWatch 1.2.12 - Joomla Monitor and Live Stats by Matej Koval" title="JoomlaWatch 1.2.12 - Joomla Monitor and Live Stats by Matej Koval" border="0"></a>					</div>
+				</div>
+			</div>
+		</div>
+	
+												</div>
+
+												<div id="maincolumn">
+																					<table class="nopad user1user2">
+									<tbody><tr valign="top">
+																					<td>
+														<div class="moduletable">
+					<h3>Latest News</h3>
+					<ul class="latestnews">
+	<li class="latestnews">
+		<a href="http://www.visualpython.org/component/content/article/34-twitter/49-twitter.html" class="latestnews">
+			Twitter</a>
+	</li>
+	<li class="latestnews">
+		<a href="http://www.visualpython.org/component/content/article/34-twitter/48-twitter.html" class="latestnews">
+			Twitter</a>
+	</li>
+	<li class="latestnews">
+		<a href="http://www.visualpython.org/donate.html" class="latestnews">
+			How can I donate?</a>
+	</li>
+	<li class="latestnews">
+		<a href="http://www.visualpython.org/python-license.html" class="latestnews">
+			Visual Python License Guidelines</a>
+	</li>
+	<li class="latestnews">
+		<a href="http://www.visualpython.org/visual-py-to-exe-community.html" class="latestnews">
+			The Visual Py to Exe Community</a>
+	</li>
+</ul>		</div>
+	
+											</td>
+																															<td class="greyline">&nbsp;</td>
+																															<td>
+														<div class="moduletable">
+					<h3>Popular</h3>
+					<ul class="mostread">
+	<li class="mostread">
+		<a href="http://www.visualpython.org/python-overview.html" class="mostread">
+			Visual Python Overview</a>
+	</li>
+	<li class="mostread">
+		<a href="http://www.visualpython.org/features.html" class="mostread">
+			What's New in 2.0?</a>
+	</li>
+	<li class="mostread">
+		<a href="http://www.visualpython.org/python-license.html" class="mostread">
+			Visual Python License Guidelines</a>
+	</li>
+	<li class="mostread">
+		<a href="http://www.visualpython.org/visual-py-to-exe-community.html" class="mostread">
+			The Visual Py to Exe Community</a>
+	</li>
+	<li class="mostread">
+		<a href="http://www.visualpython.org/about-visual-python.html" class="mostread">
+			What are the requirements to run Visual Python?</a>
+	</li>
+</ul>		</div>
+	
+											</td>
+																			</tr>
+								</tbody></table>
+
+								<div id="maindivider"></div>
+							
+							<table class="nopad">
+								<tbody><tr valign="top">
+									<td>
+										<div class="componentheading">
+	Visual Python</div>
+<table class="blog" cellpadding="0" cellspacing="0">
+<tbody><tr>
+	<td valign="top">
+					<div>
+		
+<table class="contentpaneopen">
+<tbody><tr>
+		<td class="contentheading" width="100%">
+					Python 2.6.6rc1 released			</td>
+	
+		<td class="buttonheading" align="right" width="100%">
+	<a href="http://www.visualpython.org/index.php?view=article&amp;catid=3:newsflash&amp;id=3:newsflash-2&amp;format=pdf" title="PDF" onclick="window.open(this.href,'win2','status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no'); return false;" rel="nofollow"><img src="Visual%20Python_dosyalar/pdf_button.png" alt="PDF"></a>	</td>
+	
+		<td class="buttonheading" align="right" width="100%">
+	<a href="http://www.visualpython.org/index.php?view=article&amp;catid=3:newsflash&amp;id=3:newsflash-2&amp;tmpl=component&amp;print=1&amp;layout=default&amp;page=" title="Print" onclick="window.open(this.href,'win2','status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no'); return false;" rel="nofollow"><img src="Visual%20Python_dosyalar/printButton.png" alt="Print"></a>	</td>
+	
+		<td class="buttonheading" align="right" width="100%">
+	<a href="http://www.visualpython.org/component/mailto/?tmpl=component&amp;link=aHR0cDovL3d3dy52aXN1YWxweXRob24ub3JnL2NvbXBvbmVudC9jb250ZW50L2FydGljbGUvMy1uZXdzZmxhc2gvMy1uZXdzZmxhc2gtMi5odG1s" title="E-mail" onclick="window.open(this.href,'win2','width=400,height=350,menubar=yes,resizable=yes'); return false;"><img src="Visual%20Python_dosyalar/emailButton.png" alt="E-mail"></a>	</td>
+		</tr>
+</tbody></table>
+<table class="contentpaneopen">
+
+<tbody><tr>
+	<td colspan="2" valign="top" width="70%">
+		<span class="small">
+			Written by Administrator		</span>
+		&nbsp;&nbsp;
+	</td>
+</tr>
+
+<tr>
+	<td colspan="2" class="createdate" valign="top">
+		Saturday, 09 August 2008 22:30	</td>
+</tr>
+
+
+<tr>
+<td colspan="2" valign="top">
+A <a class="reference external" href="http://www.python.org/download/releases/2.6.6/">release candidate for Python 2.6.6</a> has been released for testing.  Python 2.6.6 final is schedule for release on August 16, 2010.<div class="jcomments-links"> <a href="http://www.visualpython.org/component/content/article/3-newsflash/3-newsflash-2.html#addcomments" class="comments-link">Add new comment</a> </div>
+</td>
+</tr>
+
+<tr>
+	<td colspan="2" class="modifydate">
+		Last Updated on Monday, 09 August 2010 22:41	</td>
+</tr>
+
+
+</tbody></table>
+<span class="article_separator">&nbsp;</span>
+		</div>
+		</td>
+</tr>
+
+<tr>
+	<td valign="top">
+		<table cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+										<td class="article_column" valign="top" width="50%">
+				
+<table class="contentpaneopen">
+<tbody><tr>
+		<td class="contentheading" width="100%">
+					Python 3.2 alpha 1 released			</td>
+	
+		<td class="buttonheading" align="right" width="100%">
+	<a href="http://www.visualpython.org/index.php?view=article&amp;catid=3:newsflash&amp;id=2:python-32-alpha-1-released&amp;format=pdf" title="PDF" onclick="window.open(this.href,'win2','status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no'); return false;" rel="nofollow"><img src="Visual%20Python_dosyalar/pdf_button.png" alt="PDF"></a>	</td>
+	
+		<td class="buttonheading" align="right" width="100%">
+	<a href="http://www.visualpython.org/index.php?view=article&amp;catid=3:newsflash&amp;id=2:python-32-alpha-1-released&amp;tmpl=component&amp;print=1&amp;layout=default&amp;page=" title="Print" onclick="window.open(this.href,'win2','status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no'); return false;" rel="nofollow"><img src="Visual%20Python_dosyalar/printButton.png" alt="Print"></a>	</td>
+	
+		<td class="buttonheading" align="right" width="100%">
+	<a href="http://www.visualpython.org/component/mailto/?tmpl=component&amp;link=aHR0cDovL3d3dy52aXN1YWxweXRob24ub3JnL2NvbXBvbmVudC9jb250ZW50L2FydGljbGUvMy1uZXdzZmxhc2gvMi1weXRob24tMzItYWxwaGEtMS1yZWxlYXNlZC5odG1s" title="E-mail" onclick="window.open(this.href,'win2','width=400,height=350,menubar=yes,resizable=yes'); return false;"><img src="Visual%20Python_dosyalar/emailButton.png" alt="E-mail"></a>	</td>
+		</tr>
+</tbody></table>
+<table class="contentpaneopen">
+
+<tbody><tr>
+	<td colspan="2" valign="top" width="70%">
+		<span class="small">
+			Written by Administrator		</span>
+		&nbsp;&nbsp;
+	</td>
+</tr>
+
+<tr>
+	<td colspan="2" class="createdate" valign="top">
+		Sunday, 10 August 2008 06:30	</td>
+</tr>
+
+
+<tr>
+<td colspan="2" valign="top">
+The <a class="reference external" href="http://www.python.org/download/releases/3.2/">first alpha release of Python 3.2</a> has been released for testing.<div class="jcomments-links"> <a href="http://www.visualpython.org/component/content/article/3-newsflash/2-python-32-alpha-1-released.html#addcomments" class="comments-link">Add new comment</a> </div>
+</td>
+</tr>
+
+<tr>
+	<td colspan="2" class="modifydate">
+		Last Updated on Monday, 09 August 2010 22:42	</td>
+</tr>
+
+
+</tbody></table>
+<span class="article_separator">&nbsp;</span>
+
+<table class="contentpaneopen">
+<tbody><tr>
+		<td class="contentheading" width="100%">
+					What languages are supported by Visual Python			</td>
+	
+		<td class="buttonheading" align="right" width="100%">
+	<a href="http://www.visualpython.org/index.php?view=article&amp;catid=32:languages&amp;id=30:what-languages-are-supported-by-visual-python&amp;format=pdf" title="PDF" onclick="window.open(this.href,'win2','status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no'); return false;" rel="nofollow"><img src="Visual%20Python_dosyalar/pdf_button.png" alt="PDF"></a>	</td>
+	
+		<td class="buttonheading" align="right" width="100%">
+	<a href="http://www.visualpython.org/index.php?view=article&amp;catid=32:languages&amp;id=30:what-languages-are-supported-by-visual-python&amp;tmpl=component&amp;print=1&amp;layout=default&amp;page=" title="Print" onclick="window.open(this.href,'win2','status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no'); return false;" rel="nofollow"><img src="Visual%20Python_dosyalar/printButton.png" alt="Print"></a>	</td>
+	
+		<td class="buttonheading" align="right" width="100%">
+	<a href="http://www.visualpython.org/component/mailto/?tmpl=component&amp;link=aHR0cDovL3d3dy52aXN1YWxweXRob24ub3JnL2NvbXBvbmVudC9jb250ZW50L2FydGljbGUvMzItbGFuZ3VhZ2VzLzMwLXdoYXQtbGFuZ3VhZ2VzLWFyZS1zdXBwb3J0ZWQtYnktdmlzdWFsLXB5dGhvbi5odG1s" title="E-mail" onclick="window.open(this.href,'win2','width=400,height=350,menubar=yes,resizable=yes'); return false;"><img src="Visual%20Python_dosyalar/emailButton.png" alt="E-mail"></a>	</td>
+		</tr>
+</tbody></table>
+<table class="contentpaneopen">
+
+<tbody><tr>
+	<td colspan="2" valign="top" width="70%">
+		<span class="small">
+			Written by Administrator		</span>
+		&nbsp;&nbsp;
+	</td>
+</tr>
+
+<tr>
+	<td colspan="2" class="createdate" valign="top">
+		Monday, 11 August 2008 01:12	</td>
+</tr>
+
+
+<tr>
+<td colspan="2" valign="top">
+<p><img src="Visual%20Python_dosyalar/TR_flag.gif" border="0" height="60" width="90"> <img src="Visual%20Python_dosyalar/uk.gif" border="0" height="60" width="90"></p>
+<p>Currently supports the following languages: Turkish, English and more are being added all the time.<br>By default the English language.</p><div class="jcomments-links"> <a href="http://www.visualpython.org/component/content/article/32-languages/30-what-languages-are-supported-by-visual-python.html#addcomments" class="comments-link">Add new comment</a> </div>
+</td>
+</tr>
+
+<tr>
+	<td colspan="2" class="modifydate">
+		Last Updated on Sunday, 08 August 2010 21:38	</td>
+</tr>
+
+
+</tbody></table>
+<span class="article_separator">&nbsp;</span>
+</td>
+														<td class="article_column column_separator" valign="top" width="50%">
+				
+<table class="contentpaneopen">
+<tbody><tr>
+		<td class="contentheading" width="100%">
+					Visual Python License Guidelines			</td>
+	
+		<td class="buttonheading" align="right" width="100%">
+	<a href="http://www.visualpython.org/index.php?view=article&amp;catid=25:the-project&amp;id=5:visual-python-license-guidelines&amp;format=pdf" title="PDF" onclick="window.open(this.href,'win2','status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no'); return false;" rel="nofollow"><img src="Visual%20Python_dosyalar/pdf_button.png" alt="PDF"></a>	</td>
+	
+		<td class="buttonheading" align="right" width="100%">
+	<a href="http://www.visualpython.org/index.php?view=article&amp;catid=25:the-project&amp;id=5:visual-python-license-guidelines&amp;tmpl=component&amp;print=1&amp;layout=default&amp;page=" title="Print" onclick="window.open(this.href,'win2','status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no'); return false;" rel="nofollow"><img src="Visual%20Python_dosyalar/printButton.png" alt="Print"></a>	</td>
+	
+		<td class="buttonheading" align="right" width="100%">
+	<a href="http://www.visualpython.org/component/mailto/?tmpl=component&amp;link=aHR0cDovL3d3dy52aXN1YWxweXRob24ub3JnL3B5dGhvbi1saWNlbnNlLmh0bWw%3D" title="E-mail" onclick="window.open(this.href,'win2','width=400,height=350,menubar=yes,resizable=yes'); return false;"><img src="Visual%20Python_dosyalar/emailButton.png" alt="E-mail"></a>	</td>
+		</tr>
+</tbody></table>
+<table class="contentpaneopen">
+
+<tbody><tr>
+	<td colspan="2" valign="top" width="70%">
+		<span class="small">
+			Written by Administrator		</span>
+		&nbsp;&nbsp;
+	</td>
+</tr>
+
+<tr>
+	<td colspan="2" class="createdate" valign="top">
+		Wednesday, 20 August 2008 10:11	</td>
+</tr>
+
+
+<tr>
+<td colspan="2" valign="top">
+<p>&nbsp;</p>
+<p>If you want to distribute, copy, or modify Visual Python, you are welcome to do so under the terms of the <a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html#SEC1" target="_blank" title="GNU General Public License"> GNU General Public License</a>. If you are unfamiliar with this license, you might want to read <a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html#SEC4" target="_blank" title="How To Apply These Terms To Your Program">'How To Apply These Terms To Your Program'</a> and the <a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0-faq.html" target="_blank" title="GNU General Public License FAQ">'GNU General Public License FAQ'</a>.</p>
+<p>The Visual Python licence has always been GPL.</p><div class="jcomments-links"> <a href="http://www.visualpython.org/python-license.html#addcomments" class="comments-link">Add new comment</a> </div>
+</td>
+</tr>
+
+<tr>
+	<td colspan="2" class="modifydate">
+		Last Updated on Sunday, 08 August 2010 22:08	</td>
+</tr>
+
+
+</tbody></table>
+<span class="article_separator">&nbsp;</span>
+
+<table class="contentpaneopen">
+<tbody><tr>
+		<td class="contentheading" width="100%">
+					Visual Python GUI			</td>
+	
+		<td class="buttonheading" align="right" width="100%">
+	<a href="http://www.visualpython.org/index.php?view=article&amp;catid=28:current-users&amp;id=16:visual-python-gui&amp;format=pdf" title="PDF" onclick="window.open(this.href,'win2','status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no'); return false;" rel="nofollow"><img src="Visual%20Python_dosyalar/pdf_button.png" alt="PDF"></a>	</td>
+	
+		<td class="buttonheading" align="right" width="100%">
+	<a href="http://www.visualpython.org/index.php?view=article&amp;catid=28:current-users&amp;id=16:visual-python-gui&amp;tmpl=component&amp;print=1&amp;layout=default&amp;page=" title="Print" onclick="window.open(this.href,'win2','status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no'); return false;" rel="nofollow"><img src="Visual%20Python_dosyalar/printButton.png" alt="Print"></a>	</td>
+	
+		<td class="buttonheading" align="right" width="100%">
+	<a href="http://www.visualpython.org/component/mailto/?tmpl=component&amp;link=aHR0cDovL3d3dy52aXN1YWxweXRob24ub3JnL3Zpc3VhbC10a2ludGVyLmh0bWw%3D" title="E-mail" onclick="window.open(this.href,'win2','width=400,height=350,menubar=yes,resizable=yes'); return false;"><img src="Visual%20Python_dosyalar/emailButton.png" alt="E-mail"></a>	</td>
+		</tr>
+</tbody></table>
+<table class="contentpaneopen">
+
+<tbody><tr>
+	<td colspan="2" valign="top" width="70%">
+		<span class="small">
+			Written by Administrator		</span>
+		&nbsp;&nbsp;
+	</td>
+</tr>
+
+<tr>
+	<td colspan="2" class="createdate" valign="top">
+		Wednesday, 06 August 2008 19:29	</td>
+</tr>
+
+
+<tr>
+<td colspan="2" valign="top">
+<p style="text-align: justify;">Visual Tkinter, the Python language and visual graphic interface designed for  program</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" alt="pyscripter" src="Visual%20Python_dosyalar/pyscripter.jpg" height="48" width="48"></p>
+<p style="text-align: justify;">developers. Write programs were tailored
+ to the needs of visual GUI  top-level support. Since December 2008 we 
+project growth continues Visual  Tkinter</p>
+<div class="jcomments-links"><a class="readmore-link" href="http://www.visualpython.org/visual-tkinter.html" title="Visual Python GUI">Read more...</a> <a href="http://www.visualpython.org/visual-tkinter.html#addcomments" class="comments-link">Add new comment</a> </div>
+</td>
+</tr>
+
+<tr>
+	<td colspan="2" class="modifydate">
+		Last Updated on Thursday, 12 August 2010 22:03	</td>
+</tr>
+
+
+</tbody></table>
+<span class="article_separator">&nbsp;</span>
+</td>
+								
+		</tr>
+		</tbody></table>
+	</td>
+</tr>
+
+</tbody></table>
+
+												<div class="moduletable">
+					<div class="bannergroup">
+
+<div class="banneritem"><a href="http://www.visualpython.org/component/banners/click/7.html" target="_blank"><img src="Visual%20Python_dosyalar/shop-ad-books.jpg" alt="Banner"></a><div class="clr"></div>
+	</div>
+
+</div>		</div>
+			<div class="moduletable">
+					<div>Copyright © 2010 Visual Python. All Rights Reserved.</div>
+<div><a href="http://www.joomla.org/">Joomla!</a> is Free Software released under the <a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU/GPL License.</a></div>		</div>
+	
+									</td>
+																			<td class="greyline">&nbsp;</td>
+										<td width="170">
+													<div class="moduletable">
+					<form action="index.php" method="post" name="form2">
+
+<table class="poll" align="center" border="0" cellpadding="1" cellspacing="0" width="95%">
+<thead>
+	<tr>
+		<td style="font-weight: bold;">
+			Python version?		</td>
+	</tr>
+</thead>
+	<tbody><tr>
+		<td align="center">
+			<table class="pollstableborder" border="0" cellpadding="0" cellspacing="0">
+							<tbody><tr>
+					<td class="sectiontableentry2" valign="top">
+						<input name="voteid" id="voteid1" value="1" alt="1" type="radio">
+					</td>
+					<td class="sectiontableentry2" valign="top">
+						<label for="voteid1">
+							Python 2.6						</label>
+					</td>
+				</tr>
+											<tr>
+					<td class="sectiontableentry1" valign="top">
+						<input name="voteid" id="voteid2" value="2" alt="2" type="radio">
+					</td>
+					<td class="sectiontableentry1" valign="top">
+						<label for="voteid2">
+							Python 2.7						</label>
+					</td>
+				</tr>
+											<tr>
+					<td class="sectiontableentry2" valign="top">
+						<input name="voteid" id="voteid3" value="3" alt="3" type="radio">
+					</td>
+					<td class="sectiontableentry2" valign="top">
+						<label for="voteid3">
+							Python 3.1						</label>
+					</td>
+				</tr>
+											<tr>
+					<td class="sectiontableentry1" valign="top">
+						<input name="voteid" id="voteid4" value="4" alt="4" type="radio">
+					</td>
+					<td class="sectiontableentry1" valign="top">
+						<label for="voteid4">
+							Python 3.1.2						</label>
+					</td>
+				</tr>
+										</tbody></table>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div align="center">
+				<input name="task_button" class="button" value="Vote" type="submit">
+				&nbsp;
+				<input name="option" class="button" value="Results" onclick="document.location.href='/component/poll/14-joomla-is-used-for.html'" type="button">
+			</div>
+		</td>
+	</tr>
+</tbody></table>
+
+	<input name="option" value="com_poll" type="hidden">
+	<input name="task" value="vote" type="hidden">
+	<input name="id" value="14" type="hidden">
+	<input name="dead8300b296fba000aa8183527795f6" value="1" type="hidden"></form>		</div>
+			<div class="moduletable">
+					<form action="index.php" method="post" name="form2">
+
+<table class="poll" align="center" border="0" cellpadding="1" cellspacing="0" width="95%">
+<thead>
+	<tr>
+		<td style="font-weight: bold;">
+			Which operating system do you use?		</td>
+	</tr>
+</thead>
+	<tbody><tr>
+		<td align="center">
+			<table class="pollstableborder" border="0" cellpadding="0" cellspacing="0">
+							<tbody><tr>
+					<td class="sectiontableentry2" valign="top">
+						<input name="voteid" id="voteid13" value="13" alt="13" type="radio">
+					</td>
+					<td class="sectiontableentry2" valign="top">
+						<label for="voteid13">
+							Dos						</label>
+					</td>
+				</tr>
+											<tr>
+					<td class="sectiontableentry1" valign="top">
+						<input name="voteid" id="voteid14" value="14" alt="14" type="radio">
+					</td>
+					<td class="sectiontableentry1" valign="top">
+						<label for="voteid14">
+							Windows XP						</label>
+					</td>
+				</tr>
+											<tr>
+					<td class="sectiontableentry2" valign="top">
+						<input name="voteid" id="voteid15" value="15" alt="15" type="radio">
+					</td>
+					<td class="sectiontableentry2" valign="top">
+						<label for="voteid15">
+							Windows Vista						</label>
+					</td>
+				</tr>
+											<tr>
+					<td class="sectiontableentry1" valign="top">
+						<input name="voteid" id="voteid16" value="16" alt="16" type="radio">
+					</td>
+					<td class="sectiontableentry1" valign="top">
+						<label for="voteid16">
+							Windows Seven						</label>
+					</td>
+				</tr>
+											<tr>
+					<td class="sectiontableentry2" valign="top">
+						<input name="voteid" id="voteid17" value="17" alt="17" type="radio">
+					</td>
+					<td class="sectiontableentry2" valign="top">
+						<label for="voteid17">
+							Ubuntu						</label>
+					</td>
+				</tr>
+											<tr>
+					<td class="sectiontableentry1" valign="top">
+						<input name="voteid" id="voteid18" value="18" alt="18" type="radio">
+					</td>
+					<td class="sectiontableentry1" valign="top">
+						<label for="voteid18">
+							Pardus						</label>
+					</td>
+				</tr>
+											<tr>
+					<td class="sectiontableentry2" valign="top">
+						<input name="voteid" id="voteid19" value="19" alt="19" type="radio">
+					</td>
+					<td class="sectiontableentry2" valign="top">
+						<label for="voteid19">
+							Ret Hat						</label>
+					</td>
+				</tr>
+											<tr>
+					<td class="sectiontableentry1" valign="top">
+						<input name="voteid" id="voteid20" value="20" alt="20" type="radio">
+					</td>
+					<td class="sectiontableentry1" valign="top">
+						<label for="voteid20">
+							Mac Os						</label>
+					</td>
+				</tr>
+											<tr>
+					<td class="sectiontableentry2" valign="top">
+						<input name="voteid" id="voteid21" value="21" alt="21" type="radio">
+					</td>
+					<td class="sectiontableentry2" valign="top">
+						<label for="voteid21">
+							Symbian						</label>
+					</td>
+				</tr>
+											<tr>
+					<td class="sectiontableentry1" valign="top">
+						<input name="voteid" id="voteid22" value="22" alt="22" type="radio">
+					</td>
+					<td class="sectiontableentry1" valign="top">
+						<label for="voteid22">
+							Unix						</label>
+					</td>
+				</tr>
+											<tr>
+					<td class="sectiontableentry2" valign="top">
+						<input name="voteid" id="voteid23" value="23" alt="23" type="radio">
+					</td>
+					<td class="sectiontableentry2" valign="top">
+						<label for="voteid23">
+							Other						</label>
+					</td>
+				</tr>
+										</tbody></table>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div align="center">
+				<input name="task_button" class="button" value="Vote" type="submit">
+				&nbsp;
+				<input name="option" class="button" value="Results" onclick="document.location.href='/component/poll/15-which-operating-system-do-you-use.html'" type="button">
+			</div>
+		</td>
+	</tr>
+</tbody></table>
+
+	<input name="option" value="com_poll" type="hidden">
+	<input name="task" value="vote" type="hidden">
+	<input name="id" value="15" type="hidden">
+	<input name="dead8300b296fba000aa8183527795f6" value="1" type="hidden"></form>		</div>
+			<div class="moduletable_text">
+					<div class="bannergroup_text">
+
+	<div class="bannerheader">Featured Links:</div>
+<div class="banneritem_text"><a href="http://www.visualpython.org/component/banners/click/3.html" target="_blank">Visual Python</a>
+<br>
+Visual Tkinter, the Python language and visual graphic interface designed for program developers.<div class="clr"></div>
+	</div>
+<div class="banneritem_text"><a href="http://www.visualpython.org/component/banners/click/9.html" target="_blank">Py To Exe</a>
+<br>
+Execute the Python code users on Windows can run the code without 
+opening the files, which allows to produce PyToEXE converter are 
+presented to you again at no charge.
+
+Py file to EXE converter... DOWNLOAD<div class="clr"></div>
+	</div>
+
+	<div class="bannerfooter_text">
+		 <a href="http://www.visualpython.org/">Ads by Visual Python</a>	</div>
+</div>		</div>
+	
+										</td>
+																	</tr>
+							</tbody></table>
+
+						</div>
+						<div class="clr"></div>
+					</div>
+					<div class="clr"></div>
+				</div>
+
+				<div id="whitebox_b">
+					<div id="whitebox_bl">
+						<div id="whitebox_br"></div>
+					</div>
+				</div>
+			</div>
+
+			<div id="footerspacer"></div>
+		</div>
+
+		<div id="footer">
+			<div id="footer_l">
+				<div id="footer_r">
+					<p id="syndicate">
+						<a href="http://www.visualpython.org/index.php?format=feed&amp;type=rss">
+	<img src="Visual%20Python_dosyalar/livemarks.png" alt="feed-image"> <span>Feed Entries</span></a>
+					</p>
+					<p id="power_by">
+	 				 	Powered by <a href="http://www.joomla.org/">Joomla!</a>.
+						valid <a href="http://validator.w3.org/check/referer">XHTML</a> and <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="translate_popup" style="display: none; direction: ltr; top: 162.3px; left: 685px;">
+    <table class="translate_links"><tbody><tr><td valign="top"><a style="color: rgb(255, 51, 0); position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="en"><span class="oneageent"><img alt="English" src="Visual%20Python_dosyalar/en.gif" class="translate_flag" height="11" width="16">English</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="English" src="Visual%20Python_dosyalar/en.gif" class="translate_flag" height="11" width="16">English</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="ar"><span class="oneageent"><img alt="Arabic" src="Visual%20Python_dosyalar/ar.gif" class="translate_flag" height="11" width="16">Arabic</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Arabic" src="Visual%20Python_dosyalar/ar.gif" class="translate_flag" height="11" width="16">Arabic</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="bg"><span class="oneageent"><img alt="Bulgarian" src="Visual%20Python_dosyalar/bg.gif" class="translate_flag" height="11" width="16">Bulgarian</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Bulgarian" src="Visual%20Python_dosyalar/bg.gif" class="translate_flag" height="11" width="16">Bulgarian</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="hr"><span class="oneageent"><img alt="Croatian" src="Visual%20Python_dosyalar/hr.gif" class="translate_flag" height="11" width="16">Croatian</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Croatian" src="Visual%20Python_dosyalar/hr.gif" class="translate_flag" height="11" width="16">Croatian</span></a></td></tr><tr><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="cs"><span class="oneageent"><img alt="Czech" src="Visual%20Python_dosyalar/cs.gif" class="translate_flag" height="11" width="16">Czech</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Czech" src="Visual%20Python_dosyalar/cs.gif" class="translate_flag" height="11" width="16">Czech</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="da"><span class="oneageent"><img alt="Danish" src="Visual%20Python_dosyalar/da.gif" class="translate_flag" height="11" width="16">Danish</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Danish" src="Visual%20Python_dosyalar/da.gif" class="translate_flag" height="11" width="16">Danish</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="nl"><span class="oneageent"><img alt="Dutch" src="Visual%20Python_dosyalar/nl.gif" class="translate_flag" height="11" width="16">Dutch</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Dutch" src="Visual%20Python_dosyalar/nl.gif" class="translate_flag" height="11" width="16">Dutch</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="fi"><span class="oneageent"><img alt="Finnish" src="Visual%20Python_dosyalar/fi.gif" class="translate_flag" height="11" width="16">Finnish</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Finnish" src="Visual%20Python_dosyalar/fi.gif" class="translate_flag" height="11" width="16">Finnish</span></a></td></tr><tr><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="fr"><span class="oneageent"><img alt="French" src="Visual%20Python_dosyalar/fr.gif" class="translate_flag" height="11" width="16">French</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="French" src="Visual%20Python_dosyalar/fr.gif" class="translate_flag" height="11" width="16">French</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="de"><span class="oneageent"><img alt="German" src="Visual%20Python_dosyalar/de.gif" class="translate_flag" height="11" width="16">German</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="German" src="Visual%20Python_dosyalar/de.gif" class="translate_flag" height="11" width="16">German</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="el"><span class="oneageent"><img alt="Greek" src="Visual%20Python_dosyalar/el.gif" class="translate_flag" height="11" width="16">Greek</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Greek" src="Visual%20Python_dosyalar/el.gif" class="translate_flag" height="11" width="16">Greek</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="hi"><span class="oneageent"><img alt="Hindi" src="Visual%20Python_dosyalar/hi.gif" class="translate_flag" height="11" width="16">Hindi</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Hindi" src="Visual%20Python_dosyalar/hi.gif" class="translate_flag" height="11" width="16">Hindi</span></a></td></tr><tr><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="it"><span class="oneageent"><img alt="Italian" src="Visual%20Python_dosyalar/it.gif" class="translate_flag" height="11" width="16">Italian</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Italian" src="Visual%20Python_dosyalar/it.gif" class="translate_flag" height="11" width="16">Italian</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="ja"><span class="oneageent"><img alt="Japanese" src="Visual%20Python_dosyalar/ja.gif" class="translate_flag" height="11" width="16">Japanese</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Japanese" src="Visual%20Python_dosyalar/ja.gif" class="translate_flag" height="11" width="16">Japanese</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="ko"><span class="oneageent"><img alt="Korean" src="Visual%20Python_dosyalar/ko.gif" class="translate_flag" height="11" width="16">Korean</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Korean" src="Visual%20Python_dosyalar/ko.gif" class="translate_flag" height="11" width="16">Korean</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="no"><span class="oneageent"><img alt="Norwegian" src="Visual%20Python_dosyalar/no.gif" class="translate_flag" height="11" width="16">Norwegian</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Norwegian" src="Visual%20Python_dosyalar/no.gif" class="translate_flag" height="11" width="16">Norwegian</span></a></td></tr><tr><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="pl"><span class="oneageent"><img alt="Polish" src="Visual%20Python_dosyalar/pl.gif" class="translate_flag" height="11" width="16">Polish</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Polish" src="Visual%20Python_dosyalar/pl.gif" class="translate_flag" height="11" width="16">Polish</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="pt"><span class="oneageent"><img alt="Portuguese" src="Visual%20Python_dosyalar/pt.gif" class="translate_flag" height="11" width="16">Portuguese</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Portuguese" src="Visual%20Python_dosyalar/pt.gif" class="translate_flag" height="11" width="16">Portuguese</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="ro"><span class="oneageent"><img alt="Romanian" src="Visual%20Python_dosyalar/ro.gif" class="translate_flag" height="11" width="16">Romanian</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Romanian" src="Visual%20Python_dosyalar/ro.gif" class="translate_flag" height="11" width="16">Romanian</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="ru"><span class="oneageent"><img alt="Russian" src="Visual%20Python_dosyalar/ru.gif" class="translate_flag" height="11" width="16">Russian</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Russian" src="Visual%20Python_dosyalar/ru.gif" class="translate_flag" height="11" width="16">Russian</span></a></td></tr><tr><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="es"><span class="oneageent"><img alt="Spanish" src="Visual%20Python_dosyalar/es.gif" class="translate_flag" height="11" width="16">Spanish</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Spanish" src="Visual%20Python_dosyalar/es.gif" class="translate_flag" height="11" width="16">Spanish</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="sv"><span class="oneageent"><img alt="Swedish" src="Visual%20Python_dosyalar/sv.gif" class="translate_flag" height="11" width="16">Swedish</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Swedish" src="Visual%20Python_dosyalar/sv.gif" class="translate_flag" height="11" width="16">Swedish</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="ca"><span class="oneageent"><img alt="Catalan" src="Visual%20Python_dosyalar/ca.gif" class="translate_flag" height="11" width="16">Catalan</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Catalan" src="Visual%20Python_dosyalar/ca.gif" class="translate_flag" height="11" width="16">Catalan</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="tl"><span class="oneageent"><img alt="Filipino" src="Visual%20Python_dosyalar/tl.gif" class="translate_flag" height="11" width="16">Filipino</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Filipino" src="Visual%20Python_dosyalar/tl.gif" class="translate_flag" height="11" width="16">Filipino</span></a></td></tr><tr><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="iw"><span class="oneageent"><img alt="Hebrew" src="Visual%20Python_dosyalar/iw.gif" class="translate_flag" height="11" width="16">Hebrew</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Hebrew" src="Visual%20Python_dosyalar/iw.gif" class="translate_flag" height="11" width="16">Hebrew</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="id"><span class="oneageent"><img alt="Indonesian" src="Visual%20Python_dosyalar/id.gif" class="translate_flag" height="11" width="16">Indonesian</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Indonesian" src="Visual%20Python_dosyalar/id.gif" class="translate_flag" height="11" width="16">Indonesian</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="lv"><span class="oneageent"><img alt="Latvian" src="Visual%20Python_dosyalar/lv.gif" class="translate_flag" height="11" width="16">Latvian</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Latvian" src="Visual%20Python_dosyalar/lv.gif" class="translate_flag" height="11" width="16">Latvian</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="lt"><span class="oneageent"><img alt="Lithuanian" src="Visual%20Python_dosyalar/lt.gif" class="translate_flag" height="11" width="16">Lithuanian</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Lithuanian" src="Visual%20Python_dosyalar/lt.gif" class="translate_flag" height="11" width="16">Lithuanian</span></a></td></tr><tr><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="sr"><span class="oneageent"><img alt="Serbian" src="Visual%20Python_dosyalar/sr.gif" class="translate_flag" height="11" width="16">Serbian</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Serbian" src="Visual%20Python_dosyalar/sr.gif" class="translate_flag" height="11" width="16">Serbian</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="sk"><span class="oneageent"><img alt="Slovak" src="Visual%20Python_dosyalar/sk.gif" class="translate_flag" height="11" width="16">Slovak</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Slovak" src="Visual%20Python_dosyalar/sk.gif" class="translate_flag" height="11" width="16">Slovak</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="sl"><span class="oneageent"><img alt="Slovenian" src="Visual%20Python_dosyalar/sl.gif" class="translate_flag" height="11" width="16">Slovenian</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Slovenian" src="Visual%20Python_dosyalar/sl.gif" class="translate_flag" height="11" width="16">Slovenian</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="uk"><span class="oneageent"><img alt="Ukrainian" src="Visual%20Python_dosyalar/uk_002.gif" class="translate_flag" height="11" width="16">Ukrainian</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Ukrainian" src="Visual%20Python_dosyalar/uk_002.gif" class="translate_flag" height="11" width="16">Ukrainian</span></a></td></tr><tr><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="vi"><span class="oneageent"><img alt="Vietnamese" src="Visual%20Python_dosyalar/vi.gif" class="translate_flag" height="11" width="16">Vietnamese</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Vietnamese" src="Visual%20Python_dosyalar/vi.gif" class="translate_flag" height="11" width="16">Vietnamese</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="sq"><span class="oneageent"><img alt="Albanian" src="Visual%20Python_dosyalar/sq.gif" class="translate_flag" height="11" width="16">Albanian</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Albanian" src="Visual%20Python_dosyalar/sq.gif" class="translate_flag" height="11" width="16">Albanian</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="et"><span class="oneageent"><img alt="Estonian" src="Visual%20Python_dosyalar/et.gif" class="translate_flag" height="11" width="16">Estonian</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Estonian" src="Visual%20Python_dosyalar/et.gif" class="translate_flag" height="11" width="16">Estonian</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="gl"><span class="oneageent"><img alt="Galician" src="Visual%20Python_dosyalar/gl.gif" class="translate_flag" height="11" width="16">Galician</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Galician" src="Visual%20Python_dosyalar/gl.gif" class="translate_flag" height="11" width="16">Galician</span></a></td></tr><tr><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="hu"><span class="oneageent"><img alt="Hungarian" src="Visual%20Python_dosyalar/hu.gif" class="translate_flag" height="11" width="16">Hungarian</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Hungarian" src="Visual%20Python_dosyalar/hu.gif" class="translate_flag" height="11" width="16">Hungarian</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="mt"><span class="oneageent"><img alt="Maltese" src="Visual%20Python_dosyalar/mt.gif" class="translate_flag" height="11" width="16">Maltese</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Maltese" src="Visual%20Python_dosyalar/mt.gif" class="translate_flag" height="11" width="16">Maltese</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="th"><span class="oneageent"><img alt="Thai" src="Visual%20Python_dosyalar/th.gif" class="translate_flag" height="11" width="16">Thai</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Thai" src="Visual%20Python_dosyalar/th.gif" class="translate_flag" height="11" width="16">Thai</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="tr"><span class="oneageent"><img alt="Turkish" src="Visual%20Python_dosyalar/tr.gif" class="translate_flag" height="11" width="16">Turkish</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Turkish" src="Visual%20Python_dosyalar/tr.gif" class="translate_flag" height="11" width="16">Turkish</span></a></td></tr><tr><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="fa"><span class="oneageent"><img alt="Persian" src="Visual%20Python_dosyalar/fa.gif" class="translate_flag" height="11" width="16">Persian</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Persian" src="Visual%20Python_dosyalar/fa.gif" class="translate_flag" height="11" width="16">Persian</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="af"><span class="oneageent"><img alt="Afrikaans" src="Visual%20Python_dosyalar/af.gif" class="translate_flag" height="11" width="16">Afrikaans</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Afrikaans" src="Visual%20Python_dosyalar/af.gif" class="translate_flag" height="11" width="16">Afrikaans</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="ms"><span class="oneageent"><img alt="Malay" src="Visual%20Python_dosyalar/ms.gif" class="translate_flag" height="11" width="16">Malay</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Malay" src="Visual%20Python_dosyalar/ms.gif" class="translate_flag" height="11" width="16">Malay</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="sw"><span class="oneageent"><img alt="Swahili" src="Visual%20Python_dosyalar/sw.gif" class="translate_flag" height="11" width="16">Swahili</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Swahili" src="Visual%20Python_dosyalar/sw.gif" class="translate_flag" height="11" width="16">Swahili</span></a></td></tr><tr><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="ga"><span class="oneageent"><img alt="Irish" src="Visual%20Python_dosyalar/ga.gif" class="translate_flag" height="11" width="16">Irish</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Irish" src="Visual%20Python_dosyalar/ga.gif" class="translate_flag" height="11" width="16">Irish</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="cy"><span class="oneageent"><img alt="Welsh" src="Visual%20Python_dosyalar/cy.gif" class="translate_flag" height="11" width="16">Welsh</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Welsh" src="Visual%20Python_dosyalar/cy.gif" class="translate_flag" height="11" width="16">Welsh</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="be"><span class="oneageent"><img alt="Belarusian" src="Visual%20Python_dosyalar/be.gif" class="translate_flag" height="11" width="16">Belarusian</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Belarusian" src="Visual%20Python_dosyalar/be.gif" class="translate_flag" height="11" width="16">Belarusian</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="is"><span class="oneageent"><img alt="Icelandic" src="Visual%20Python_dosyalar/is.gif" class="translate_flag" height="11" width="16">Icelandic</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Icelandic" src="Visual%20Python_dosyalar/is.gif" class="translate_flag" height="11" width="16">Icelandic</span></a></td></tr><tr><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="mk"><span class="oneageent"><img alt="Macedonian" src="Visual%20Python_dosyalar/mk.gif" class="translate_flag" height="11" width="16">Macedonian</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Macedonian" src="Visual%20Python_dosyalar/mk.gif" class="translate_flag" height="11" width="16">Macedonian</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="yi"><span class="oneageent"><img alt="Yiddish" src="Visual%20Python_dosyalar/yi.gif" class="translate_flag" height="11" width="16">Yiddish</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Yiddish" src="Visual%20Python_dosyalar/yi.gif" class="translate_flag" height="11" width="16">Yiddish</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="hy"><span class="oneageent"><img alt="Armenian" src="Visual%20Python_dosyalar/hy.gif" class="translate_flag" height="11" width="16">Armenian</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Armenian" src="Visual%20Python_dosyalar/hy.gif" class="translate_flag" height="11" width="16">Armenian</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="az"><span class="oneageent"><img alt="Azerbaijani" src="Visual%20Python_dosyalar/az.gif" class="translate_flag" height="11" width="16">Azerbaijani</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Azerbaijani" src="Visual%20Python_dosyalar/az.gif" class="translate_flag" height="11" width="16">Azerbaijani</span></a></td></tr><tr><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="eu"><span class="oneageent"><img alt="Basque" src="Visual%20Python_dosyalar/eu.gif" class="translate_flag" height="11" width="16">Basque</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Basque" src="Visual%20Python_dosyalar/eu.gif" class="translate_flag" height="11" width="16">Basque</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="ka"><span class="oneageent"><img alt="Georgian" src="Visual%20Python_dosyalar/ka.gif" class="translate_flag" height="11" width="16">Georgian</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Georgian" src="Visual%20Python_dosyalar/ka.gif" class="translate_flag" height="11" width="16">Georgian</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="ht"><span class="oneageent"><img alt="Haitian Creole" src="Visual%20Python_dosyalar/ht.gif" class="translate_flag" height="11" width="16">Haitian Creole</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Haitian Creole" src="Visual%20Python_dosyalar/ht.gif" class="translate_flag" height="11" width="16">Haitian Creole</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="ur"><span class="oneageent"><img alt="Urdu" src="Visual%20Python_dosyalar/ur.gif" class="translate_flag" height="11" width="16">Urdu</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Urdu" src="Visual%20Python_dosyalar/ur.gif" class="translate_flag" height="11" width="16">Urdu</span></a></td></tr><tr><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="zh-CN"><span class="oneageent"><img alt="Chinese (S)" src="Visual%20Python_dosyalar/zh-CN.gif" class="translate_flag" height="11" width="16">Chinese (S)</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Chinese (S)" src="Visual%20Python_dosyalar/zh-CN.gif" class="translate_flag" height="11" width="16">Chinese (S)</span></a></td><td valign="top"><a style="position: relative;" class="languagelink" href="http://www.visualpython.org/" onclick="return false;" name="zh-TW"><span class="oneageent"><img alt="Chinese (T)" src="Visual%20Python_dosyalar/zh-TW.gif" class="translate_flag" height="11" width="16">Chinese (T)</span><span style="opacity: 0; position: absolute; top: 0pt; left: 0pt;" class="twoageent"><img alt="Chinese (T)" src="Visual%20Python_dosyalar/zh-TW.gif" class="translate_flag" height="11" width="16">Chinese (T)</span></a></td></tr></tbody></table></div><div style="visibility: hidden; height: 0px; width: 0px; overflow: hidden; opacity: 0;" id="hiddenDIV"><img alt="" title="" src="http://www.visualpython.org/images/stories/ImageAll/Linux-logo.png"></div></body></html>

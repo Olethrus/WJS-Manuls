@@ -1,0 +1,38 @@
+Notes on R
+
+case and character sensative
+High level language
+# is a comment in R
+An active R session will have a working dir with it
+paths are always doulbe quote and "/" ex "C:/My Documents"
+Recomendec library with Base R install
+R> library("MASS")
+
+Installing Packages
+There are thousands of contributed packages not included with the typical R installation; to make them loadable in R, you must first download and
+install them from a repository (usually CRAN). The easiest way to do this is
+by using the install.packages function directly at the R prompt (for this you
+need an Internet connection).
+For example, one such package is ks (Duong, 2007), which you’ll use in
+Chapter 26. Executing the following will attempt to connect to your local
+CRAN mirror and download and install ks, as well as several packages upon
+which it relies (called dependencies):
+
+Updating
+update.packages()
+
+?<command> will launch a help file
+??<"partial command"> will searcg everywhere for a refernce
+
+Recomended gui for R is RStudio
+
+save.image or load
+.RData file - used to save and load all data from a R session
+
+q() - quit session
+
+For major or long operationd you will use a script not a console session
+
+Solutions to examples - https://www.nostarch.com/bookofr/ 
+
+PAGE 14
